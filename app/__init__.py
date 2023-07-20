@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 from dotenv import load_dotenv
 import folium
 from peewee import *
@@ -10,7 +10,11 @@ from data import landing_data
 load_dotenv()
 app = Flask(__name__)
 
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
+if os.getenv("TESTING") == "true":
+    print("Running in test mode")
+    mydb = SqliteDatabase("file:memory?mode=memory&cache=shared", uri=True)
+else:
+    mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
               user=os.getenv("MYSQL_USER"),
               password=os.getenv("MYSQL_PASSWORD"),
               host=os.getenv("MYSQL_HOST"),
@@ -157,9 +161,26 @@ def education(fellow):
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
+    keys = request.form.keys()
+
+    if "name" not in keys:
+        return Response("Invalid name", status=400)
     name = request.form['name']
+    if not name:
+        return Response("Invalid name", status=400)
+
+    if "email" not in keys:
+        return Response("Invalid email", status=400)
     email = request.form['email']
+    if not email or email.count("@") != 1:
+        return Response("Invalid email",status=400)
+    
+    if "content" not in keys:
+        return Response("Invalid content", status=400)
     content = request.form['content']
+    if not content:
+        return Response("Invalid content", status=400)
+    
     timeline_post = TimelinePost.create(name=name, email=email, content=content)
     return model_to_dict(timeline_post)
 
