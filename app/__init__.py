@@ -79,7 +79,7 @@ about_me= {
 @app.route('/')
 def index():
     my_map = build_map()
-    intro_message = "Welcome to our page! Click on a fellow to learn more about them!"
+    intro_message = "Welcome to our page!"
     map_title = "A map of all the places that we have been to:"
     map_desc = "Reginald (Green), Eyob (Red), Cassey (Blue)"
     return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), landing_data=landing_data, intro_message=intro_message, my_map=my_map, map_title=map_title, map_desc=map_desc)
