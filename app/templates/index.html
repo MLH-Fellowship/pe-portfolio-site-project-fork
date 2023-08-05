@@ -32,15 +32,13 @@
     </header>
 
     <div class="profile">
-        {% for person in landing_data %}
         <div>
             <div id="profile-picture" class="profile-picture">
-                <img src="{{ person.img }}">
+                <img src="{{ landing_data['img'] }}">
             </div>
             <h1>{{ title }}</h1>
-            <h2><a href="{{person.name}}">{{ person.name }}</a></h2>
+            <h2><a href="/about">{{ landing_data['name'] }}</a></h2>
         </div>
-        {% endfor %}
     </div>
 
     <div class="landing">
@@ -50,12 +48,6 @@
     <div class="map">
         <h3>{{ map_title }}</h3>
         {{ my_map | safe }}
-        {% for person in landing_data %}
-        <div>
-            {{person.name.split()[0]}}
-            <div class="fa fa-map-marker {{ person.style }}"></div>
-        </div>
-        {% endfor %}
     </div>
 </body>
 

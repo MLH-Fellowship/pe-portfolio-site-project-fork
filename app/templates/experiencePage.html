@@ -20,17 +20,17 @@
     <div class="experience">
         <div class="experience-container">
             <h1>Work Experience</h1>
-            {% for d in experience %}
+            {% for e in experiences %}
             <div class="experience-point">
                 <div class="experience-header">
-                <h2>{{d['Company']}} | {{d['Role']}}</h2>
-                <h3>{{d['Date']}}</h3>
+                <h2>{{e['Company']}} | {{e['Role']}}</h2>
+                <h3>{{e['Date']}}</h3>
             </div>
                 <div class="jobDescription">
-                {% for x in d['JobDescription'] %}
+                {% for jd in e['JobDescription'] %}
                 <ul>
                     <li>
-                        {{x}}
+                        {{jd}}
                     </li>
                 </ul>
                 {% endfor %}

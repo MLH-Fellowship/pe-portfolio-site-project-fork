@@ -35,27 +35,27 @@
         <div class="nav-container">
             <div class="nav-portal">
 
-                <h2><a class="link-test" href="{{fellow}}/experience">Experience</a></h2>
+                <h2><a class="link-test" href="/experience">Experience</a></h2>
             </div>
             <div class="nav-portal">
 
-                <h2><a href="{{fellow}}/hobbies">Hobbies</a></h2>
+                <h2><a href="/hobbies">Hobbies</a></h2>
             </div>
             <div class="nav-portal">
 
-                <h2><a href="{{fellow}}/education">Education</a></h2>
+                <h2><a href="/education">Education</a></h2>
             </div>
         </div>
     </nav>
     <div class="profile">
         <div id="profile-picture" class="profile-picture">
-            <img src="{{data[fellow]}}">
+            <img src="{{ img }}">
         </div>
-        <h1>{{fellow}}</h1>
+        <h1>{{ name }}</h1>
     </div>
 
     <h1 class = "about_me">About me!</h1>
-        <p class="content">{{intro[fellow]}}</p>
+        <p class="content">{{ about_me }}</p>
 </body>
 </html>
 
