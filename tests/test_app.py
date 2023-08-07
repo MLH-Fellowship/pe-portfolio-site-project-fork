@@ -14,7 +14,7 @@ class AppTestCase(unittest.TestCase):
         html = response.get_data(as_text=True)
         assert "<title>MLH Fellow</title>" in html
         assert "<h1>MLH Fellow</h1>" in html
-        assert "<h3>A map of all the places that we have been to:</h3>" in html
+        assert "<h3>This is a map of places I have travelled to:</h3>" in html
 
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
