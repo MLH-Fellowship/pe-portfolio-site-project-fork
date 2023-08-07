@@ -63,24 +63,23 @@ class AppTestCase(unittest.TestCase):
         assert "Invalid email" in html
 
     def test_fellow_pages(self):
-        for path in ["Cassey%20Shao", "Eyob%20Dagnachew", "Reginald%20Amedee"]:
-            response = self.client.get(f"/{path}")
-            assert response.status_code == 200
-            html = response.get_data(as_text=True)
-            assert "<title></title>" in html
-            assert '<h1 class = "about_me">About me!</h1>' in html
+        response = self.client.get(f"/about")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert "<title></title>" in html
+        assert '<h1 class = "about_me">About me!</h1>' in html
 
-            response = self.client.get(f"/{path}/experience")
-            assert response.status_code == 200
-            html = response.get_data(as_text=True)
-            assert "<h1>Work Experience</h1>" in html
+        response = self.client.get(f"/experience")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert "<h1>Work Experience</h1>" in html
 
-            response = self.client.get(f"/{path}/hobbies")
-            assert response.status_code == 200
-            html = response.get_data(as_text=True)
-            assert "<h1>Hobbies</h1>" in html
+        response = self.client.get(f"/hobbies")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert "<h1>Hobbies</h1>" in html
 
-            response = self.client.get(f"/{path}/education")
-            assert response.status_code == 200
-            html = response.get_data(as_text=True)
-            assert "<h1>Education</h1>" in html
+        response = self.client.get(f"/education")
+        assert response.status_code == 200
+        html = response.get_data(as_text=True)
+        assert "<h1>Education</h1>" in html
