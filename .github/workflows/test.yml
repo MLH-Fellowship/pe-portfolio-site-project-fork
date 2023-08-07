@@ -22,7 +22,7 @@ jobs:
           python-version: '3.8'
 
       - name: Setup Pythonn Virtual Environment
-        run: python3 -m venc python3-virtualenv
+        run: python3 -m venv python3-virtualenv
 
       - name: Install Dependencies
         run: python3-virtualenv/bin/pip install -r requirements.txt
