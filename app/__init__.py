@@ -53,7 +53,7 @@ def build_map():
 def index():
     my_map = build_map()
     intro_message = "Welcome to this portfolio website! Click on the fellow name to learn more!"
-    map_title = "A map of all the places that we have been to:"
+    map_title = "This is a map of places I have travelled to:"
     return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), landing_data=landing_data, intro_message=intro_message, my_map=my_map, map_title=map_title)
 
 # About page.
