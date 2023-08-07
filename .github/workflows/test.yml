@@ -19,10 +19,10 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.6.8'
+          python-version: '3.8.9'
 
       - name: Setup Pythonn Virtual Environment
-        run: python -m venc python3-virtualenv
+        run: python3 -m venc python3-virtualenv
 
       - name: Install Dependencies
         run: python3-virtualenv/bin/pip install -r requirements.txt
